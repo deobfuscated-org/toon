@@ -217,8 +217,8 @@ together.
 
 ## Enclosure
 The enclosure is made of plastic and has a matte finish. It has cutouts for
-the display, ethernet port, USB port, and power / OpenTherm port, as well as
-small slots for ventilation in the top back part.
+the display, ethernet port, USB port, reset button and power / OpenTherm port,
+as well as small slots for ventilation in the top back.
 
 The front bezel can easily be removed by gently prying it off the main body.
 
