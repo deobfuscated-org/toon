@@ -62,9 +62,8 @@ Sigma designs ZW0301 Z-Wave controller
 
 [Datasheet](./datasheets/Sigma-Designs-ZW0301.pdf)
 
-The Z-Wave controller is connected to the SoC via UART2 (ttymxc2), which is
-used for communication with the Z-Wave controller. The Z-Wave controller also
-has a serial EEPROM connected to it, which is used for data storage.
+The Z-Wave controller is connected to the SoC via UART2 (ttymxc2), which is used for communication with the Z-Wave controller.
+The Z-Wave controller also has a serial EEPROM connected to it, which is used for data storage.
 
 ### Serial EEPROM
 Atmel `ATMLH402` (as marked on chip)
@@ -73,9 +72,8 @@ Atmel `ATMLH402` (as marked on chip)
 * Address: spi0.0
 * Linux driver: `at25`
 
-This EEPROM is likely not supposed to be accessed directly, but rather through
-the Z-Wave controller's interface. However, the SPI bus is accessible from
-Linux, and the EEPROM can be accessed directly.
+This EEPROM is likely not supposed to be accessed directly, but rather through the Z-Wave controller's interface.
+However, the SPI bus is accessible from Linux, and the EEPROM can be accessed directly.
 
 [Datasheet](./datasheets/Fujitsu-MB85RS256TY.pdf) of a compatible part.
 
@@ -89,29 +87,24 @@ Microchip USB3370 (x2)
 
 
 ### OpenTherm / power port
-Toon v1 has a 2-pin port on its back which is used to connect the Toon to a
-central heating system or boiler, as well as to provide power.
+Toon v1 has a 2-pin port on its back which is used to connect the Toon to a central heating system or boiler, as well as to provide power.
 
 The pins match up with a connector embedded in the wall mount.
 
 OpenTherm communications are done through UART1 (ttymxc1), at 4800,8n1.
 
 #### Ketelmodule
-Commonly, the wall mount connector is connected to a Ketelmodule (boiler
-module). This module is a separate device, and allows the Toon to communicate
-with the boiler as well as provide adequate power to the Toon.
+Commonly, the wall mount connector is connected to a Ketelmodule (boiler module).
+This module is a separate device, and allows the Toon to communicate with the boiler as well as provide adequate power to the Toon.
 
-This module is not required for the Toon to function. You can also connect the
-wall mount connector directly to 24V DC power, and use the Toon without
-OpenTherm functionality.
+This module is not required for the Toon to function.
+You can also connect the wall mount connector directly to 24V DC power, and use the Toon without OpenTherm functionality.
 
-The Toon will sort out polarity fully automatically, so it does not matter
-which pin is connected to which wire.
+The Toon will sort out polarity fully automatically, so it does not matter which pin is connected to which wire.
 
 ### JTAG header
-The Toon v1 PCB has a 14-pin JTAG header. The kind folks at Quby have even
-populated the header with pins, which makes it super easy to connect a JTAG
-debugger or Raspberry Pi.
+The Toon v1 PCB has a 14-pin JTAG header.
+The kind folks at Quby have even populated the header with pins, which makes it super easy to connect a JTAG debugger or Raspberry Pi.
 
 Its pinout is as follows:
 
@@ -132,11 +125,9 @@ Pin | Signal | Description
 13  | TxD    | UART Transmit data
 14  | GND    | Ground
 
-* Pin 1 is the top left pin when orienting the PCB with the ethernet port at
-  the bottom left.
+* Pin 1 is the top left pin when orienting the PCB with the ethernet port at the bottom left.
 * Pin 2 is the top right pin.
-* The TxD and RxD pins are connected to UART0 (ttymxc0), which is used for
-  console output by U-Boot and Linux.
+* The TxD and RxD pins are connected to UART0 (ttymxc0), which is used for console output by U-Boot and Linux.
 
 ```plaintext
           1___
@@ -158,14 +149,11 @@ Analog Devices ADT7410
 * Address: 0x49 @ i2c-0
 * Linux driver: `adt7410`
 
-Note: the ATD7410 would normally reside on 0x48, and while there is a driver
-configured for this address, it does not appear to work.
+Note: the ATD7410 would normally reside on 0x48, and while there is a driver configured for this address, it does not appear to work.
 
-Potentially, the device was (planned to be) moved to 0x48 on later hardware
-revisions, or perhaps dual sensors were planned.
+Potentially, the device was (planned to be) moved to 0x48 on later hardware revisions, or perhaps dual sensors were planned.
 
-The software on Toon v1 also appears to apply some offset to the measured
-temperature value.
+The software on Toon v1 also appears to apply some offset to the measured temperature value.
 
 [Datasheet](./datasheets/Analog-Devices-ADT7410.pdf)
 
@@ -175,9 +163,8 @@ Unknown device
 * Address: 0x4c @ i2c-0
 * Linux driver: `tmp431`
 
-Does not appear to work, and is likely a leftover from an earlier hardware
-revision. The driver is configured for this address, but the device does not
-respond to any commands.
+Does not appear to work, and is likely a leftover from an earlier hardware revision.
+The driver is configured for this address, but the device does not respond to any commands.
 
 ## Other ICs of interest
 
@@ -217,39 +204,32 @@ Toon v1 has 5 main components:
 4. The enclosure, which houses the PCB and display.
 5. The wall mount, which provides power and connectivity to the Toon.
 
-None of the components are screwed or glued; instead they are all clipped
-together.
+None of the components are screwed or glued; instead they are all clipped together.
 
 ## Enclosure
-The enclosure is made of plastic and has a matte finish. It has cutouts for
-the display, ethernet port, USB port, reset button and power / OpenTherm port,
-as well as small slots for ventilation in the top back.
+The enclosure is made of plastic and has a matte finish.
+It has cutouts for the display, ethernet port, USB port, reset button and power / OpenTherm port, as well as small slots for ventilation in the top back.
 
 The front bezel can easily be removed by gently prying it off the main body.
-There are two clips per side. Unfortunately, these clips are somewhat fragile,
-and not designed to be removed and reattached multiple times.
+There are two clips per side.
+Unfortunately, these clips are somewhat fragile, and not designed to be removed and reattached multiple times.
 
 ## Display
-The display is connected to the PCB via a 40-pin FPC connector as well as a
-small connector for the touchscreen.
+The display is connected to the PCB via a 40-pin FPC connector as well as a small connector for the touchscreen.
 
 These connectors can be accessed by carefully tilting the display downward.
 
-Both connectors can be unplugged by gently prying open the connector's locking
-mechanism.
+Both connectors can be unplugged by gently prying open the connector's locking mechanism.
 
 ## PCB
-The PCB is clipped into the enclosure with 6 clips; one in each corner and
-two surrounding the OpenTherm port.
-These clips are quite fragile, and break off easily. Do not use anything thicker
-than a piece of paper to pry the clips off, as bending them too far will break
-the clips.
+The PCB is clipped into the enclosure with 6 clips; one in each corner and two surrounding the OpenTherm port.
+These clips are quite fragile, and break off easily.
+Do not use anything thicker than a piece of paper to pry the clips off, as bending them too far will break the clips.
 
-The PCB is a multi-layer board that contains all the electronic components of
-the Toon. It was designed to be compact and efficient, with a focus on low
-power consumption.
+The PCB is a multi-layer board that contains all the electronic components of the Toon.
+It was designed to be compact and efficient, with a focus on low power consumption.
 
-The PCB has several connectors for the various interfaces, including Ethernet,
-USB, and OpenTherm. It also has a JTAG header for debugging and programming.
+The PCB has several connectors for the various interfaces, including Ethernet, USB, and OpenTherm.
+It also has a JTAG header for debugging and programming.
 
 The single button on the PCB is used for (hard) rebooting the Toon.
