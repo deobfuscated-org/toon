@@ -39,4 +39,8 @@ contributions, official documentation, and reverse engineering efforts.
 This documentation is currently in its early stages. We are actively working
 on expanding the content to cover various aspects of the Toon thermostat.
 
-Initially, this documentation will only focus on the now-defunct Toon v1.
+Initially, this documentation will mostly focus on the now-defunct Toon v1,
+but as there are commonalities with the Toon v2, we will also include
+information about the newer model where relevant.
+
+This will likely be expanded when the Toon v2 will become defunct as well.

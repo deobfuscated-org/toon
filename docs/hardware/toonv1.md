@@ -23,21 +23,21 @@ Samsung K9F1G08U0D
 [Datasheet](./datasheets/Samsung-K9F1G08U0D.pdf)
 
 ### Partition table
-  #   | size    | label           | notes
-  --- | ---     | ---             | ---
-  0   | 1MiB    | `u-boot`        | Bootloader; not mapped in Linux
-  1   | 512KiB  | `u-boot-env`    | U-Boot environment variables
-  2   | 1536KiB | `splash-image`  | Boot splash screen
-  3   | 3MiB    | `kernel`        | Linux kernel
-  4   | 3MiB    | `kernel-backup` | Backup Linux kernel
-  5   | 119MiB  | `rootfs`        | Main root filesystem
+#   | size    | label           | notes
+--- | ---     | ---             | ---
+0   | 1MiB    | `u-boot`        | Bootloader; not mapped in Linux
+1   | 512KiB  | `u-boot-env`    | U-Boot environment variables
+2   | 1536KiB | `splash-image`  | Boot splash screen
+3   | 3MiB    | `kernel`        | Linux kernel
+4   | 3MiB    | `kernel-backup` | Backup Linux kernel
+5   | 119MiB  | `rootfs`        | Main root filesystem
 
 ## Display
 Tianma TM070RDH03
 * Size: 7 inch
 * Resolution: 800x480 (WVGA), 134PPI, 16:9 aspect ratio
 * Type: TFT LCD
-* Touch: 4-wire resistive touch screen
+* Touch: 4-wire resistive touch screen (see below for controller details)
 
 No datasheet found.
 
@@ -94,8 +94,7 @@ central heating system or boiler, as well as to provide power.
 
 The pins match up with a connector embedded in the wall mount.
 
-OpenTherm communications are done through UART1 (ttymxc1), at 4800,8n1 (4800
-baud(?), 8 data bits, no parity, 1 stop bit).
+OpenTherm communications are done through UART1 (ttymxc1), at 4800,8n1.
 
 #### Ketelmodule
 Commonly, the wall mount connector is connected to a Ketelmodule (boiler
@@ -105,6 +104,9 @@ with the boiler as well as provide adequate power to the Toon.
 This module is not required for the Toon to function. You can also connect the
 wall mount connector directly to 24V DC power, and use the Toon without
 OpenTherm functionality.
+
+The Toon will sort out polarity fully automatically, so it does not matter
+which pin is connected to which wire.
 
 ### JTAG header
 The Toon v1 PCB has a 14-pin JTAG header. The kind folks at Quby have even
@@ -160,7 +162,10 @@ Note: the ATD7410 would normally reside on 0x48, and while there is a driver
 configured for this address, it does not appear to work.
 
 Potentially, the device was (planned to be) moved to 0x48 on later hardware
-revisions.
+revisions, or perhaps dual sensors were planned.
+
+The software on Toon v1 also appears to apply some offset to the measured
+temperature value.
 
 [Datasheet](./datasheets/Analog-Devices-ADT7410.pdf)
 
@@ -221,6 +226,8 @@ the display, ethernet port, USB port, reset button and power / OpenTherm port,
 as well as small slots for ventilation in the top back.
 
 The front bezel can easily be removed by gently prying it off the main body.
+There are two clips per side. Unfortunately, these clips are somewhat fragile,
+and not designed to be removed and reattached multiple times.
 
 ## Display
 The display is connected to the PCB via a 40-pin FPC connector as well as a
@@ -234,6 +241,9 @@ mechanism.
 ## PCB
 The PCB is clipped into the enclosure with 6 clips; one in each corner and
 two surrounding the OpenTherm port.
+These clips are quite fragile, and break off easily. Do not use anything thicker
+than a piece of paper to pry the clips off, as bending them too far will break
+the clips.
 
 The PCB is a multi-layer board that contains all the electronic components of
 the Toon. It was designed to be compact and efficient, with a focus on low

@@ -4,7 +4,7 @@ Specifications:
 
 * ARM926EJ-S single-core CPU at 400 MHz
 * 128 MB RAM
-* 128 MB NOR flash storage
+* 128 MB NAND flash storage
 * Ethernet, WiFi, Z-wave, USB2, OpenTherm interfaces
 * 800x480 display with touch
 * Temperature sensor
