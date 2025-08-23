@@ -2,17 +2,26 @@
 
 Specifications:
 
- * SoC: MCIMX27LM0P4A with:
- * CPU: ARM926EJ-S at 400 MHz
- * 128 MB memory
- * 128 MB flash, root file system 100MB, 35MB-70MB free after rooting depending on Toon software version (looks like newer versions take more space)
- * Ethernet, WiFi, Z-wave, USB port
- * 800x480 display with touch, advertised as 32 bits per pixel by the framebuffer driver
- * kernel version somewhere around 2.6.36-R10-h28
- * `libc-2.21.so` with `GLIBC_` symbols `GLIBC_2.4` to `GLIBC_2.18`
+* ARM926EJ-S single-core CPU at 400 MHz
+* 128 MB RAM
+* 128 MB NAND flash storage
+* Ethernet, WiFi, Z-wave, USB2, OpenTherm interfaces
+* 800x480 display with touch
+* Temperature sensor
+
+[More information](./toonv1.md)
 
 # Toon 2
 
 Specifications:
 
-[something bigger than Toon 1]
+* NXP iMX6SX CPU
+  * 1x Cortex-A9 core at up to 1 GHz
+  * 1x Cortex-M4 core at up to 200 MHz
+* 4GB DDR3 RAM
+* 4GB flash storage
+* WiFi, Bluetooth, Z-Wave, Zigbee, USB2, OpenTherm interfaces
+* 1024x600 display with touch
+* Ultrasonic, light, air quality, humidity/temperature sensors
+
+[More information](./toonv2.md)
