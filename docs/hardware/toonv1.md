@@ -2,6 +2,7 @@
 
 ## SoC
 [NXP MCIMX27LMOP4A](https://www.nxp.com/products/processors-and-microcontrollers/arm-processors/i-mx-applications-processors/i-mx-mature-processors/multimedia-applications-processors-arm9-core-robust-security-for-mobile:i.MX27L)
+
 * CPU: ARM926EJ-S
 * Speed: 400 MHz
 
@@ -9,6 +10,7 @@
 
 ## Memory
 NANYA NT6DM32M32BC-T1
+
 * Size: 128 MiB
 * Type: DDR
 * Speed: 200MHz
@@ -17,6 +19,7 @@ NANYA NT6DM32M32BC-T1
 
 ## Storage
 Samsung K9F1G08U0D
+
 * Size: 128 MiB
 * Type: NAND Flash
 
@@ -34,6 +37,7 @@ Samsung K9F1G08U0D
 
 ## Display
 Tianma TM070RDH03
+
 * Size: 7 inch
 * Resolution: 800x480 (WVGA), 134PPI, 16:9 aspect ratio
 * Type: TFT LCD
@@ -51,6 +55,7 @@ See the SoC's datasheet for more information.
 
 ### WiFi
 AzureWave AW-NU168H
+
 * Mini PCIe module
 * Ralink RT5390 802.11b/g/n chip
 * Connected via internal USB2 interface (see USB2 section below).
@@ -67,6 +72,7 @@ The Z-Wave controller also has a serial EEPROM connected to it, which is used fo
 
 ### Serial EEPROM
 Atmel `ATMLH402` (as marked on chip)
+
 * SPI serial EEPROM
 * 256 Kbit (32 KiB x 8 bits)
 * Address: spi0.0
@@ -79,6 +85,7 @@ However, the SPI bus is accessible from Linux, and the EEPROM can be accessed di
 
 ### USB2
 Microchip USB3370 (x2)
+
 * Enhanced Single Supply Hi-Speed USB ULPI Transceiver (USB PHY)
 * Used to connect the USB port and the Wi-Fi module
 * Connected to the SoC's USB2 ULPI interface
@@ -143,6 +150,7 @@ SRST 07 - |.|.| - 08 TDI
 
 ### temperature sensor
 Analog Devices ADT7410
+
 * I2C temperature sensor
 * Accuracy: ±0.5°C from -40°C to +105°C
 * 16-bit resolution (~0.0078°C)
@@ -159,6 +167,7 @@ The software on Toon v1 also appears to apply some offset to the measured temper
 
 ### (defunct?) temperature sensor
 Unknown device
+
 * I2C temperature sensor
 * Address: 0x4c @ i2c-0
 * Linux driver: `tmp431`
@@ -170,6 +179,7 @@ The driver is configured for this address, but the device does not respond to an
 
 ### Real-time clock
 Renesas ISL1208
+
 * I2C real-time clock
 * Address: 0x6f @ i2c-1
 * Linux driver: `isl1208`
@@ -178,6 +188,7 @@ Renesas ISL1208
 
 ### Touch controller
 Texas Instruments TSC2007
+
 * I2C interface
 * 4-wire resistive touch
 * Address: 0x48 @ i2c-1
@@ -187,6 +198,7 @@ Texas Instruments TSC2007
 
 ### Audio codec + DSP + amplifier
 Texas Instruments TLV320AIC3111
+
 * Stereo audio codec
 * I2C interface
 * Address: 0x18 @ i2c-0
@@ -198,6 +210,7 @@ Texas Instruments TLV320AIC3111
 # Mechanical aspects
 
 Toon v1 has 5 main components:
+
 1. The PCB, which contains the SoC, memory, storage, etc.
 2. The display, which is a 7-inch touchscreen.
 3. The front bezel, which holds the display in place.
